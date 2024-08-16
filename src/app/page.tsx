@@ -1,3 +1,4 @@
+import HTMLTable from '@/components/HTMLTable';
 import { PagesResponse } from '@/types';
 import transformPagesResponse from '@/utils/transformPagesResponse';
 
@@ -10,5 +11,5 @@ export default async function Home() {
     return <p>No data was returned from the server</p>;
 
   const transformedData = transformPagesResponse(data);
-  return <div>Table goes here</div>;
+  return <HTMLTable pages={transformedData} />;
 }
