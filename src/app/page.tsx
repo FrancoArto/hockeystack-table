@@ -8,7 +8,9 @@ export default async function Home() {
   const data: PagesResponse[] = await response.json();
 
   if (!data || data.length === 0)
-    return <p>No data was returned from the server</p>;
+    return (
+      <p className="mt-10 text-xl">No data was returned from the server</p>
+    );
 
   const transformedData = transformPagesResponse(data);
   return <HTMLTable pages={transformedData} />;

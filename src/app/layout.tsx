@@ -17,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <h1>Hockeystack</h1>
-        {children}
+        <div className="container mx-auto mt-10">
+          <h1 className="text-4xl font-bold">Hockeystack</h1>
+          {children}
+        </div>
       </body>
     </html>
   );
