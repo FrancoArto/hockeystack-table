@@ -22,7 +22,7 @@ const usePagination = (pages: TransformedPagesData[]): UsePagination => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageInputValue, setPageInputValue] = useState<string>('');
   const maxPages = pages.length / MAX_PAGE_SIZE;
-  const startIndex = MAX_PAGE_SIZE * currentPage - 1;
+  const startIndex = MAX_PAGE_SIZE * (currentPage - 1);
   const endIndex = startIndex + MAX_PAGE_SIZE;
 
   const paginatedData = pages.slice(startIndex, endIndex);
