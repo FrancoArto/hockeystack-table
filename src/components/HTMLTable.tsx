@@ -7,14 +7,19 @@ interface HTMLTableProps {
 }
 
 const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
-  const { currentPage, paginatedData, setCurrentPage } = usePagination(pages);
+  const { currentPage, nextPageButton, paginatedData, previousPageButton } =
+    usePagination(pages);
   return (
     <div>
       <div>
         <h5>Pages</h5>
-        <button onClick={() => setCurrentPage(currentPage - 1)}>{'<'}</button>
+        {!previousPageButton.hidden && (
+          <button onClick={previousPageButton.onClick}>{'<'}</button>
+        )}
         <span>{currentPage}</span>
-        <button onClick={() => setCurrentPage(currentPage + 1)}>{'>'}</button>
+        {!nextPageButton.hidden && (
+          <button onClick={nextPageButton.onClick}>{'>'}</button>
+        )}
       </div>
       <table>
         <TableHead headerLabels={Object.keys(pages[0])} />
