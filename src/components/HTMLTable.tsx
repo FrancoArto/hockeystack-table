@@ -9,8 +9,17 @@ interface HTMLTableProps {
 
 const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
   const { handleSort, sortConfig, sortedData } = useTableSort(pages);
-  const { currentPage, nextPageButton, paginatedData, previousPageButton } =
-    usePagination(sortedData);
+  const {
+    currentPage,
+    handlePageInputSubmit,
+    nextPageButton,
+    maxPages,
+    pageInputValue,
+    paginatedData,
+    previousPageButton,
+    setPageInputValue,
+  } = usePagination(sortedData);
+
   return (
     <div>
       <div>
@@ -22,6 +31,21 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
         {!nextPageButton.hidden && (
           <button onClick={nextPageButton.onClick}>{'>'}</button>
         )}
+        <input
+          type="number"
+          min={1}
+          max={maxPages}
+          value={pageInputValue}
+          onChange={(e) => setPageInputValue(e.target.value)}
+        />
+        <button
+          onClick={() => handlePageInputSubmit()}
+          disabled={
+            pageInputValue.length === 0 || parseInt(pageInputValue) > maxPages
+          }
+        >
+          Submit
+        </button>
       </div>
       <table>
         <TableHead
