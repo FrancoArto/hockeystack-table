@@ -15,10 +15,7 @@ const transformPagesResponse = (
       totalPageviewCount,
     } = page;
 
-    const bounce =
-      isNaN(totalCount) || totalCount < 1
-        ? 'Unavailable'
-        : `${(bounceCount * 100) / totalCount}%`;
+    const bounce = getBouncePercentage(bounceCount, totalCount);
 
     return {
       url,
@@ -30,5 +27,17 @@ const transformPagesResponse = (
       visitors: totalVisitorCount,
     };
   });
+
+const getBouncePercentage = (
+  bounceCount: number,
+  totalCount: number
+): string => {
+  if (isNaN(totalCount) || totalCount < 1) return 'Unavailable';
+  const bouncePercentage = (bounceCount * 100) / totalCount;
+  return `${bouncePercentage.toLocaleString('en-US', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  })}%`;
+};
 
 export default transformPagesResponse;
