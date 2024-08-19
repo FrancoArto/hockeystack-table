@@ -2,6 +2,7 @@
 import usePagination from '@/hooks/usePagination';
 import useTableSort, { SortConfig } from '@/hooks/useTableSort';
 import { TransformedPagesData } from '@/types';
+import { useMemo } from 'react';
 
 interface HTMLTableProps {
   pages: TransformedPagesData[];
@@ -19,6 +20,17 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
     previousPageButton,
     setPageInputValue,
   } = usePagination(sortedData);
+
+  const submitButtonDisabled = useMemo(() => {
+    const pageInputNumberValue = parseInt(pageInputValue);
+
+    return (
+      pageInputValue.length === 0 ||
+      isNaN(pageInputNumberValue) ||
+      pageInputNumberValue > maxPages ||
+      pageInputNumberValue < 1
+    );
+  }, [maxPages, pageInputValue]);
 
   return (
     <div className="rounded-xl shadow bg-transparent overflow-hidden">
@@ -52,11 +64,7 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
           />
           <button
             onClick={() => handlePageInputSubmit()}
-            disabled={
-              pageInputValue.length === 0 ||
-              parseInt(pageInputValue) > maxPages ||
-              parseInt(pageInputValue) < 1
-            }
+            disabled={submitButtonDisabled}
             className="cursor-pointer rounded-md bg-rose-700 text-white py-2 px-3 hover:bg-rose-600 disabled:bg-slate-300 disabled:text-black disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Submit
