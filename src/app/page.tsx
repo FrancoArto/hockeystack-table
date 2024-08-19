@@ -1,4 +1,5 @@
 import HTMLTable from '@/components/HTMLTable';
+import LibraryTable from '@/components/LibraryTable';
 import { PagesResponse } from '@/types';
 import transformPagesResponse from '@/utils/transformPagesResponse';
 
@@ -13,5 +14,16 @@ export default async function Home() {
     );
 
   const transformedData = transformPagesResponse(data);
-  return <HTMLTable pages={transformedData} />;
+  return (
+    <div>
+      <div className="my-10">
+        <h2 className="text-2xl text-center mb-4">HTML Table</h2>
+        <HTMLTable pages={transformedData} />
+      </div>
+      <div className="my-10">
+        <h2 className="text-2xl text-center mb-4">Library table</h2>
+        <LibraryTable pages={transformedData} />
+      </div>
+    </div>
+  );
 }

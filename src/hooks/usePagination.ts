@@ -1,7 +1,6 @@
+import { MAX_PAGE_SIZE } from '@/constants';
 import { TransformedPagesData } from '@/types';
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
-
-const MAX_PAGE_SIZE = 10;
 
 interface PaginationButton {
   hidden: boolean;

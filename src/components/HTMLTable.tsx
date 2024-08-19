@@ -21,7 +21,7 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
   } = usePagination(sortedData);
 
   return (
-    <div className="rounded-xl shadow bg-transparent my-10 overflow-hidden">
+    <div className="rounded-xl shadow bg-transparent overflow-hidden">
       <div className="bg-white flex p-3 justify-between items-center">
         <h5 className="font-bold text-xl">Pages</h5>
         <div>
