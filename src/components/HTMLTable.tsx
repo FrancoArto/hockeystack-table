@@ -40,7 +40,7 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
           {!previousPageButton.hidden && (
             <button
               onClick={previousPageButton.onClick}
-              className="cursor-pointer align-text-bottom"
+              className="cursor-pointer align-text-bottom active:opacity-50"
             >
               {'<'}
             </button>
@@ -49,7 +49,7 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
           {!nextPageButton.hidden && (
             <button
               onClick={nextPageButton.onClick}
-              className="cursor-pointer align-text-bottom"
+              className="cursor-pointer align-text-bottom active:opacity-50"
             >
               {'>'}
             </button>
@@ -63,9 +63,9 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
             className="ml-5 mr-2 text-right border-solid border border-slate-600 rounded-md py-1.5 px-2 focus-visible:outline-rose-700 hover:border-rose-700"
           />
           <button
-            onClick={() => handlePageInputSubmit()}
+            onClick={handlePageInputSubmit}
             disabled={submitButtonDisabled}
-            className="cursor-pointer rounded-md bg-rose-700 text-white py-2 px-3 hover:bg-rose-600 disabled:bg-slate-300 disabled:text-black disabled:opacity-50 disabled:cursor-not-allowed"
+            className="cursor-pointer rounded-md bg-rose-700 text-white py-2 px-3 hover:bg-rose-600 disabled:bg-slate-300 disabled:text-black disabled:opacity-50 disabled:cursor-not-allowed active:opacity-50"
           >
             Submit
           </button>
