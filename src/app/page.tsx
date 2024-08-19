@@ -1,5 +1,5 @@
-import HTMLTable from '@/components/HTMLTable';
-import LibraryTable from '@/components/LibraryTable';
+import BasicTable from '@/components/BasicTable';
+import MUITable from '@/components/MUITable';
 import { PagesResponse } from '@/types';
 import transformPagesResponse from '@/utils/transformPagesResponse';
 
@@ -17,12 +17,12 @@ export default async function Home() {
   return (
     <div>
       <div className="my-10">
-        <h2 className="text-2xl text-center mb-4">HTML Table</h2>
-        <HTMLTable pages={transformedData} />
+        <h2 className="text-2xl text-center mb-4">Basic Table</h2>
+        <BasicTable pages={transformedData} />
       </div>
       <div className="my-10">
-        <h2 className="text-2xl text-center mb-4">Library table</h2>
-        <LibraryTable pages={transformedData} />
+        <h2 className="text-2xl text-center mb-4">MUI Data Grid Table</h2>
+        <MUITable pages={transformedData} />
       </div>
     </div>
   );

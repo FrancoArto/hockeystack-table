@@ -4,11 +4,11 @@ import useTableSort, { SortConfig } from '@/hooks/useTableSort';
 import { TransformedPagesData } from '@/types';
 import { useMemo } from 'react';
 
-interface HTMLTableProps {
+interface BasicTableProps {
   pages: TransformedPagesData[];
 }
 
-const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
+const BasicTable: React.FC<BasicTableProps> = ({ pages }) => {
   const { handleSort, sortConfig, sortedData } = useTableSort(pages);
   const {
     currentPage,
@@ -113,7 +113,7 @@ const TableHead: React.FC<TableHeadProps> = ({
   );
 };
 
-const TableBody: React.FC<HTMLTableProps> = ({ pages }) => {
+const TableBody: React.FC<BasicTableProps> = ({ pages }) => {
   return (
     <tbody>
       {pages.map((item, idx) => (
@@ -145,4 +145,4 @@ const TableBody: React.FC<HTMLTableProps> = ({ pages }) => {
   );
 };
 
-export default HTMLTable;
+export default BasicTable;

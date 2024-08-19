@@ -13,11 +13,11 @@ import { useCallback, useMemo, useState } from 'react';
 const percentageFieldComparator = (a: string, b: string) =>
   parseFloat(a.replace('%', '')) - parseFloat(b.replace('%', ''));
 
-interface LibraryTableProps {
+interface MUITableProps {
   pages: TransformedPagesData[];
 }
 
-const LibraryTable: React.FC<LibraryTableProps> = ({ pages }) => {
+const MUITable: React.FC<MUITableProps> = ({ pages }) => {
   const [pageInputValue, setPageInputValue] = useState<string>('');
 
   const apiRef = useGridApiRef();
@@ -107,4 +107,4 @@ const LibraryTable: React.FC<LibraryTableProps> = ({ pages }) => {
   );
 };
 
-export default LibraryTable;
+export default MUITable;
