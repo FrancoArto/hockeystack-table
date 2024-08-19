@@ -67,7 +67,7 @@ const HTMLTable: React.FC<HTMLTableProps> = ({ pages }) => {
             disabled={submitButtonDisabled}
             className="cursor-pointer rounded-md bg-rose-700 text-white py-2 px-3 hover:bg-rose-600 disabled:bg-slate-300 disabled:text-black disabled:opacity-50 disabled:cursor-not-allowed active:opacity-50"
           >
-            Submit
+            Go to page
           </button>
         </div>
       </div>
